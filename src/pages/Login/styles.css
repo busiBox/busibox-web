@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@200&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -42,4 +44,20 @@
 .form form img {
   width: 300px;
   margin-bottom: 20px;
+}
+
+.form form button {
+  margin: 30px 0;
+  color: #35b729;
+  border-color: #35b729;
+}
+
+.login-button:hover {
+  border: 1px solid #35b729 !important;
+  color: #35b729;
+}
+
+.join-in {
+  position: absolute;
+  top: 0;
 }

@@ -1,0 +1,82 @@
+#resource-register-container {
+  width: 100vw;
+  height: 92vh;
+  background-color: #f1f1f1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+}
+
+#resource-form-box {
+  display: flex;
+  flex-direction: column;
+
+  width: 70%;
+  height: 80%;
+  background-color: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.09);
+  padding: 30px;
+
+  border-radius: 4px;
+}
+
+.resource-form {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.resource-form-input {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 5px;
+}
+
+.resource-form-1 {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.register-button-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+h3 {
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #35b729;
+  margin-bottom: 40px;
+}
+
+.MuiInput-underline:after {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+  position: absolute;
+  transform: scaleX(0);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  border-bottom: 2px solid #35b729 !important;
+  pointer-events: none;
+}
+
+.MuiFormLabel-root.Mui-focused {
+  color: #35b729 !important;
+}
+
+.Mui-focused input {
+  border-color: #35b729;
+  border-radius: 4px;
+}
+
+label {
+  color: #35b729 !important;
+}

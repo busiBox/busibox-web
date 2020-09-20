@@ -1,0 +1,58 @@
+#header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 8vh;
+  width: 100vw;
+  background-color: #252525;
+}
+
+/* #header-container::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 100vw;
+  background-color: #f1f1f1;
+  top: 0;
+}
+
+#header-container::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 300px;
+  background-color: #35b729;
+  right: 0;
+  top: 0;
+} */
+
+#logo {
+  position: relative;
+  width: 170px;
+  margin-top: 7px;
+
+  cursor: pointer;
+}
+
+.bars-menu-icon {
+  color: whitesmoke;
+  padding-left: 20px;
+  margin-top: 5px;
+}
+
+.profile-menu-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.profile-menu-container img {
+  width: 25px;
+  height: 25px;
+}

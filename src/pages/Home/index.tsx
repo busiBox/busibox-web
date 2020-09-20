@@ -1,9 +1,15 @@
-import React from "react";
+import React, { Fragment } from "react";
 
-// import { Container } from './styles';
+import Header from "../../components/Header";
+import "./styles.css";
 
 const Home: React.FC = () => {
-  return <h1>Bem-vindo ao busiBox</h1>;
+  return (
+    <Fragment>
+      <Header />
+      <div id="home-container"></div>
+    </Fragment>
+  );
 };
 
 export default Home;

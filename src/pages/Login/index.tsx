@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { TextField, Button } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import loginRequest from "../../services/Login";
-import logo from "../../assets/logo/logo_vertical_escuro.png";
 import "./styles.css";
 
 interface IUser {
@@ -37,30 +36,34 @@ const Login: React.FC = () => {
       <div className="image"></div>
       <div className="form">
         <form action="" onSubmit={handleSubmit}>
-          <img src={logo} alt="Logo busiBox" />
+          <img src="/assets/logo/logo_vertical_escuro.png" alt="Logo busiBox" />
           <TextField
-            variant="outlined"
             type="email"
             placeholder="digite aqui seu e-mail"
-            margin="dense"
             label="e-mail"
             onChange={(e) =>
               setUser({ email: e.target.value, password: user?.password })
             }
           />
           <TextField
-            variant="outlined"
             type="password"
             placeholder="digite aqui sua senha"
-            margin="dense"
             label="senha"
             onChange={(e) =>
               setUser({ email: user?.email, password: e.target.value })
             }
           />
-          <Button type="submit" variant="outlined" color="primary">
+          <Button
+            className="login-button"
+            type="submit"
+            variant="outlined"
+            color="primary"
+          >
             LOGIN
           </Button>
+          <div>
+            <Link to="/">Esqueceu sua senha?</Link>
+          </div>
         </form>
       </div>
     </div>
