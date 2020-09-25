@@ -18,7 +18,7 @@ interface IResource {
 export async function storeResource(resource: IResource[]): Promise<any> {
   try {
     const response: AxiosResponse<any> = await axios({
-      url: `http://localhost:3333/resource`,
+      url: `${process.env.REACT_APP_API_URL}/resource`,
       method: "POST",
       data: resource,
     });

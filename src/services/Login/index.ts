@@ -13,7 +13,7 @@ interface IResponse {
 async function loginRequest(user: IUser): Promise<any> {
   try {
     const response: AxiosResponse<IResponse> = await axios({
-      url: `http://localhost:3333/login`,
+      url: `${process.env.REACT_APP_API_URL}/login`,
       method: "POST",
       data: user,
     });
