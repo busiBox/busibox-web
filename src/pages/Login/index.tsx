@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { TextField, Button } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import { useHistory, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import loginRequest from "../../services/Login";
+import Input from "../../components/Input";
 import "./styles.css";
 
 interface IUser {
@@ -31,26 +32,28 @@ const Login: React.FC = () => {
     }
   }
 
+  console.log(user);
+
   return (
     <div id="container">
       <div className="image"></div>
       <div className="form">
         <form action="" onSubmit={handleSubmit}>
           <img src="/assets/logo/logo_vertical_escuro.png" alt="Logo busiBox" />
-          <TextField
-            type="email"
-            placeholder="digite aqui seu e-mail"
-            label="e-mail"
-            onChange={(e) =>
-              setUser({ email: e.target.value, password: user?.password })
+          <Input
+            placeholder="exemplo@email.com"
+            onChange={(e: React.FormEvent<HTMLInputElement>) =>
+              setUser({
+                email: e.currentTarget.value,
+                password: user?.password,
+              })
             }
           />
-          <TextField
+          <Input
+            placeholder="*****"
             type="password"
-            placeholder="digite aqui sua senha"
-            label="senha"
-            onChange={(e) =>
-              setUser({ email: user?.email, password: e.target.value })
+            onChange={(e: React.FormEvent<HTMLInputElement>) =>
+              setUser({ email: user?.email, password: e.currentTarget.value })
             }
           />
           <Button
@@ -59,10 +62,12 @@ const Login: React.FC = () => {
             variant="outlined"
             color="primary"
           >
-            LOGIN
+            Login
           </Button>
           <div>
-            <Link to="/">Esqueceu sua senha?</Link>
+            <span id="forgot">
+              Esqueceu sua senha? <Link to="/">Clique aqui</Link>
+            </span>
           </div>
         </form>
       </div>
