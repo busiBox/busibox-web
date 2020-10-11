@@ -8,6 +8,32 @@
   background-color: #252525;
 }
 
+.menuList {
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  height: 100%;
+  padding-top: 10px;
+}
+
+.menuListItem {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 10px 10px 20px;
+
+  height: 50px;
+  cursor: pointer;
+
+  font-size: 14px;
+
+  transition: all 0.5s;
+}
+
+.menuListItem:hover {
+  background-color: #5b5b5b;
+  color: #f1f1f1;
+}
+
 /* #header-container::before {
   content: "";
   position: absolute;

@@ -1,59 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
+import { useHistory, Link } from "react-router-dom";
 import MenuOutlinedIcon from "@material-ui/icons/MenuOutlined";
+import CloseIcon from "@material-ui/icons/Close";
 import { slide as BarsMenu } from "react-burger-menu";
 
 import "./styles.css";
-import { Link } from "react-router-dom";
 
 function Header() {
+  const history = useHistory();
+  const [isOpen, setOpen] = useState(false);
+
   const barsMenuStyle = {
     bmBurgerButton: {
       position: "fixed",
-      width: "25px",
-      height: "25px",
+      width: "30px",
+      height: "30px",
       left: "20px",
       top: "20px",
-    },
-    bmCrossButton: {
-      height: "24px",
-      width: "24px",
-    },
-    bmCross: {
-      background: "#bdc3c7",
     },
     bmMenuWrap: {
       position: "fixed",
       height: "100%",
     },
+    bmCrossButton: {
+      height: 40,
+      width: 40,
+      right: "250px",
+      color: "red",
+    },
     bmMenu: {
-      background: "#373a47",
-      padding: "2.5em 1.5em 0",
-      fontSize: "1.15em",
-    },
-    bmMorphShape: {
-      fill: "#FFF",
-    },
-    bmItemList: {
-      color: "#b8b7ad",
-      padding: "0.8em",
-    },
-    bmItem: {
-      display: "inline-block",
+      background: "#F1F1F1",
+      marginTop: "8vh",
+      width: "260px",
     },
     bmOverlay: {
-      background: "rgba(0, 0, 0, 0.3)",
+      boxShadow: "0 3px 16px #00000033",
+      marginTop: "7vh",
     },
   };
   return (
     <div>
-      <BarsMenu
-        styles={barsMenuStyle}
-        // isOpen={this.state.isHamburgerMenuOpened}
-        // onStateChange={this.handleHamburguerMenu}
-      ></BarsMenu>
+      <BarsMenu styles={barsMenuStyle} onStateChange={(e) => setOpen(e.isOpen)}>
+        <ul className="menuList">
+          <li className="menuListItem" onClick={() => history.push("/")}>
+            Início
+          </li>
+          <li
+            className="menuListItem"
+            onClick={() => history.push("/resource-register")}
+          >
+            Cadastro de recursos
+          </li>
+        </ul>
+      </BarsMenu>
       <div id="header-container">
         <div className="bars-menu-icon">
-          <MenuOutlinedIcon />
+          {isOpen ? <CloseIcon /> : <MenuOutlinedIcon />}
         </div>
 
         <Link to="/">

@@ -5,11 +5,11 @@ export const Container = styled.div`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   border-radius: 4px;
-  padding: 25px;
+  padding: 20px;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 
   img {
