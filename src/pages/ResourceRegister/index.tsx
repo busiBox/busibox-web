@@ -2,14 +2,10 @@ import React, { Fragment, useState } from "react";
 import { storeResource } from "../../services/Resource";
 
 import Header from "../../components/Header";
+import Input from "../../components/Input";
+import Button from "../../components/Button";
+import Select from "../../components/Input/Select";
 import "./styles.css";
-import {
-  TextField,
-  Select,
-  MenuItem,
-  InputLabel,
-  Button,
-} from "@material-ui/core";
 
 interface IResource {
   name: string;
@@ -40,6 +36,7 @@ const ResourceRegister: React.FC = () => {
     manufacturingDate: undefined,
   });
 
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     await storeResource([resource]);
@@ -52,130 +49,50 @@ const ResourceRegister: React.FC = () => {
         <div id="resource-form-box">
           <h3>cadastro de recursos</h3>
           <form className="resource-form" action="" onSubmit={handleSubmit}>
-            <div className="resource-form-1">
-              <div className="resource-form-input">
-                <InputLabel>nome</InputLabel>
-                <TextField
-                  style={{ width: 350 }}
-                  type="text"
-                  onChange={(e) =>
-                    setResource({ ...resource, name: e.target.value })
-                  }
-                />
-              </div>
-
-              <div className="resource-form-input">
-                <InputLabel>marca</InputLabel>
-                <TextField
-                  style={{ width: 350 }}
-                  type="text"
-                  onChange={(e) =>
-                    setResource({ ...resource, brand: e.target.value })
-                  }
-                />
-              </div>
-              <div className="resource-form-input">
-                <InputLabel>preço unitário</InputLabel>
-                <TextField
-                  style={{ width: 200 }}
-                  type="number"
-                  onChange={(e) =>
-                    setResource({
-                      ...resource,
-                      unitPrice: {
-                        ...resource.unitPrice,
-                        number: parseFloat(e.target.value),
-                      },
-                    })
-                  }
-                />
-              </div>
-              <div className="resource-form-input">
-                <InputLabel>moeda</InputLabel>
-                <Select
-                  style={{ width: 300, backgroundColor: "#FFFFFF" }}
-                  onChange={(e) =>
-                    setResource({
-                      ...resource,
-                      unitPrice: {
-                        ...resource.unitPrice,
-                        currency: e.target.value as string,
-                      },
-                    })
-                  }
-                  value={resource.unitPrice.currency}
-                >
-                  <MenuItem value="R$">R$</MenuItem>
-                  <MenuItem value="US$">US$</MenuItem>
-                  <MenuItem value="€">€</MenuItem>
-                </Select>
-              </div>
-              <div className="resource-form-input">
-                <InputLabel id="teste">unidade de medida</InputLabel>
-                <Select
-                  labelId="teste"
-                  style={{ width: 200, backgroundColor: "#FFFFFF" }}
-                  onChange={(e) =>
-                    setResource({
-                      ...resource,
-                      unitMeasurement: e.target.value as string,
-                    })
-                  }
-                  value={resource.unitMeasurement}
-                >
-                  <MenuItem value="mL">mL</MenuItem>
-                  <MenuItem value="L">L</MenuItem>
-                  <MenuItem value="g">g</MenuItem>
-                  <MenuItem value="kg">kg</MenuItem>
-                </Select>
-              </div>
-              <div className="resource-form-input">
-                <InputLabel>data de fabricação</InputLabel>
-                <TextField
-                  style={{ width: 200 }}
-                  type="date"
-                  onChange={(e) =>
-                    setResource({
-                      ...resource,
-                      manufacturingDate: e.target.value,
-                    })
-                  }
-                />
-              </div>
-              <div className="resource-form-input">
-                <InputLabel>lote</InputLabel>
-                <TextField
-                  style={{ width: 300 }}
-                  type="text"
-                  onChange={(e) =>
-                    setResource({ ...resource, batchCode: e.target.value })
-                  }
-                />
-              </div>
-              <div className="resource-form-input">
-                <InputLabel>data de validade</InputLabel>
-                <TextField
-                  style={{ width: 200 }}
-                  type="date"
-                  onChange={(e) =>
-                    setResource({ ...resource, expirationDate: e.target.value })
-                  }
-                />
-              </div>
+            <div className='form-row'>
+              <Input width='30%' label='Nome *' onChange={(e: React.FormEvent<HTMLFormElement>) =>
+                setResource({ ...resource, name: e.currentTarget.value })} />
+              <Input width='30%' label='Marca' onChange={(e: React.FormEvent<HTMLFormElement>) =>
+                setResource({ ...resource, brand: e.currentTarget.value })} />
+              <Input width='30%' label='lote' onChange={(e: React.FormEvent<HTMLFormElement>) =>
+                setResource({ ...resource, batchCode: e.currentTarget.value })} />
             </div>
-            <div className="register-button-container">
-              <Button
-                type="submit"
-                style={{
-                  color: "#35b729",
-                  fontWeight: "bold",
-                  borderColor: "#35b729",
-                  width: 200,
-                }}
-                variant="outlined"
-              >
-                Cadastrar
-              </Button>
+            <div className='form-row'>
+              <Input width='30%' type='number' step="0.01" label='preço unitário *' onChange={(e: React.FormEvent<HTMLFormElement>) =>
+                setResource({
+                  ...resource, unitPrice: {
+                    ...resource.unitPrice,
+                    number: parseFloat(e.currentTarget.value),
+                  }
+                })} />
+              <Select width='30%' label='moeda *' onChange={(e: React.FormEvent<HTMLFormElement>) =>
+                setResource({ ...resource, unitPrice: {
+                  ...resource.unitPrice,
+                  currency: e.currentTarget.value}})}>
+                <option value="R$">R$</option>
+                <option value="US$">US$</option>
+                <option value="€">€</option>
+              </Select>
+              <Select width='30%' label='unidade de medida *' onChange={(e: React.FormEvent<HTMLFormElement>) =>
+                setResource({ ...resource, unitMeasurement: e.currentTarget.value })}>
+                <option value="mL">mL</option>
+                <option value="L">L</option>
+                <option value="g">g</option>
+                <option value="kg">kg</option>
+              </Select>
+            </div>
+            <div className='form-row'>
+              <Input width='30%' type='date' label='Data de validade' onChange={(e: React.FormEvent<HTMLFormElement>) =>
+                setResource({ ...resource, expirationDate: e.currentTarget.value })} />
+
+              <Input width='30%' type='date' label='data de fabricação' onChange={(e: React.FormEvent<HTMLFormElement>) =>
+                setResource({ ...resource, manufacturingDate: e.currentTarget.value })} />
+
+              <Input width='30%' label='código interno' onChange={(e: React.FormEvent<HTMLFormElement>) =>
+                setResource({ ...resource, code: e.currentTarget.value })} />
+            </div>
+            <div className='form-button'>
+              <Button width='30%' type='submit' label='cadastrar' />
             </div>
           </form>
         </div>

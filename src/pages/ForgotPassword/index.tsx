@@ -18,9 +18,7 @@ const ForgotPassword: React.FC = () => {
     e.preventDefault();
 
     if (!email) {
-      return toast.warn("Preencha todos os campos", {
-        position: "bottom-right",
-      });
+      return toast.warn("Preencha todos os campos");
     }
 
     toast.success('E-mail para troca de senha enviado com sucesso!')

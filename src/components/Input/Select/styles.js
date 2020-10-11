@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const InputContainer = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: ${(props) => props.width};
@@ -14,7 +14,7 @@ export const InputContainer = styled.div`
   }
 `;
 
-export const Input = styled.input`
+export const SelectField = styled.select`
   background-color: white;
   height: 45px;
   width: 100%;

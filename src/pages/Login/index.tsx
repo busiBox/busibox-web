@@ -20,9 +20,7 @@ const Login: React.FC = () => {
     e.preventDefault();
 
     if (!user || !user.email || !user.password) {
-      return toast.warn("Preencha todos os campos", {
-        position: "bottom-right",
-      });
+      return toast.warn("Preencha todos os campos");
     }
 
     const response = await loginRequest(user);

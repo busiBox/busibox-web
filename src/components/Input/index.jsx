@@ -3,22 +3,20 @@ import React from "react";
 import { Input as CustomInput, InputContainer } from "./styles.js";
 
 function Input({
-  placeholder,
   type = "text",
-  variant = "outlined",
-  size = "small",
-  label = "",
   width = "100%",
+  label,
+  placeholder = "",
   onChange,
+  step = "",
 }) {
   return (
     <InputContainer width={width}>
       <label>{label}</label>
       <CustomInput
-        variant={variant}
+        step={step}
         type={type}
         placeholder={placeholder}
-        size={size}
         onChange={onChange}
         fullWidth
       />

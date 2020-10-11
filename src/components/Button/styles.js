@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: table-footer-group;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: ${(props) => props.width};
   margin: 8px 0;
 
   button {
@@ -21,5 +21,6 @@ export const Container = styled.div`
 `;
 
 export const CustomButton = styled(Button)`
+  width: 100%;
   height: 45px;
 `;

@@ -23,7 +23,6 @@ export async function storeResource(resource: IResource[]): Promise<any> {
       data: resource,
     });
 
-    console.log(response);
 
     toast.success("Recurso cadastrado com sucesso!", {
       position: "bottom-right",
@@ -31,7 +30,9 @@ export async function storeResource(resource: IResource[]): Promise<any> {
 
     return true;
   } catch (error) {
-    toast.error("Preencha todos os campos!", {
+    console.error(error);
+    
+    toast.warn("Preencha todos os campos!", {
       position: "bottom-right",
     });
     return false;
