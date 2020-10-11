@@ -1,36 +1,36 @@
 import React, { useState } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import loginRequest from "../../services/Login";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import "./styles.css";
 
 interface IUser {
   email: string | undefined;
-  password: string | undefined;
 }
 
-const Login: React.FC = () => {
+const ForgotPassword: React.FC = () => {
   const history = useHistory();
-  const [user, setUser] = useState<IUser>();
+  const [email, setEmail] = useState<IUser>();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    if (!user || !user.email || !user.password) {
+    if (!email) {
       return toast.warn("Preencha todos os campos", {
         position: "bottom-right",
       });
     }
 
-    const response = await loginRequest(user);
+    toast.success('E-mail para troca de senha enviado com sucesso!')
+    history.push("/login");
 
-    if (response) {
-      localStorage.setItem('login', 'ok')
-      history.push("/");
-    }
+    // const response = await loginRequest(email);
+
+    // if (response) {
+    //   localStorage.setItem('login', 'ok')
+    // }
   }
 
   return (
@@ -44,29 +44,17 @@ const Login: React.FC = () => {
             placeholder="exemplo@email.com"
             type="email"
             onChange={(e: React.FormEvent<HTMLInputElement>) =>
-              setUser({
+              setEmail({
                 email: e.currentTarget.value,
-                password: user?.password,
               })
-            }
-          />
-          <Input
-            label='senha'
-            placeholder="*****"
-            type="password"
-            onChange={(e: React.FormEvent<HTMLInputElement>) =>
-              setUser({ email: user?.email, password: e.currentTarget.value })
             }
           />
           <Button 
             type="submit"
             variant="outlined"
-            label='login'
+            label='recuperar senha'
             /> 
           <div>
-            <span id="forgot">
-              Esqueceu sua senha? <Link to="/forget-password">Clique aqui</Link>
-            </span>
           </div>
         </form>
       </div>
@@ -74,4 +62,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default ForgotPassword;

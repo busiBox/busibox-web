@@ -64,7 +64,9 @@ function Header() {
           />
         </Link>
         <div className="profile-menu-container">
-          <img src="/assets/icons/user-icon.svg" alt="user avatar" />
+          <Link to="/login">
+            <img src="/assets/icons/logout.svg" alt="logout" />
+          </Link>
         </div>
       </div>
     </div>

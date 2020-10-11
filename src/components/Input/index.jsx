@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Input as CustomInput, InputContainer } from "./styles";
+import { Input as CustomInput, InputContainer } from "./styles.js";
 
 function Input({
   placeholder,
@@ -8,10 +8,11 @@ function Input({
   variant = "outlined",
   size = "small",
   label = "",
+  width = "100%",
   onChange,
 }) {
   return (
-    <InputContainer>
+    <InputContainer width={width}>
       <label>{label}</label>
       <CustomInput
         variant={variant}
@@ -19,6 +20,7 @@ function Input({
         placeholder={placeholder}
         size={size}
         onChange={onChange}
+        fullWidth
       />
     </InputContainer>
   );

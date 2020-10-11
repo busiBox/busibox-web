@@ -3,8 +3,15 @@ import styled from "styled-components";
 export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  margin: 10px 0;
+  width: ${(props) => props.width};
+
+  label {
+    color: #172b4d !important;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 5px;
+  }
 `;
 
 export const Input = styled.input`
