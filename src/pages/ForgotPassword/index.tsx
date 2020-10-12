@@ -49,7 +49,6 @@ const ForgotPassword: React.FC = () => {
           />
           <Button 
             type="submit"
-            variant="outlined"
             label='recuperar senha'
             /> 
           <div>

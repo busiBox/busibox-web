@@ -15,12 +15,19 @@
   padding-top: 10px;
 }
 
+.menuList img {
+  width: 14px;
+  margin-left: 12px;
+  margin-right: 6px;
+}
+
 .menuListItem {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   padding: 10px 10px 10px 20px;
 
+  color: #6f6f6f;
   height: 50px;
   cursor: pointer;
 
@@ -30,7 +37,7 @@
 }
 
 .menuListItem:hover {
-  background-color: #5b5b5b;
+  background-color: #a0a0a0;
   color: #f1f1f1;
 }
 

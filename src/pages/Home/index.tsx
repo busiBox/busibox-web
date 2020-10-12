@@ -31,7 +31,7 @@ const Home: React.FC = () => {
             data='R$ 5.320,00'
             width='290px'
             height='230px'
-            icon="/assets/icons/resource.svg"
+            icon="/assets/icons/cash.svg"
             />
 
           <Card
@@ -39,7 +39,7 @@ const Home: React.FC = () => {
             data='700'
             width='290px'
             height='230px'
-            icon="/assets/icons/resource.svg"
+            icon="/assets/icons/box.svg"
             />
         </div>
       </div>

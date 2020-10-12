@@ -43,13 +43,22 @@ function Header() {
       <BarsMenu styles={barsMenuStyle} onStateChange={(e) => setOpen(e.isOpen)}>
         <ul className="menuList">
           <li className="menuListItem" onClick={() => history.push("/")}>
-            Início
+            <img src="/assets/icons/home.svg" alt="" />
+            <span>Início</span>
           </li>
           <li
             className="menuListItem"
             onClick={() => history.push("/resource-register")}
           >
+            <img src="/assets/icons/resource-menu.svg" alt="Produto" />
             Cadastro de recursos
+          </li>
+          <li
+            className="menuListItem"
+            onClick={() => history.push("/product-register")}
+          >
+            <img src="/assets/icons/product-menu.svg" alt="Produto" />
+            <span>Cadastro de produto</span>
           </li>
         </ul>
       </BarsMenu>
